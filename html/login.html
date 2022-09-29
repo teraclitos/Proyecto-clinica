@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <!-- CSS stylesheet -->
+   <link rel="stylesheet" href="../css/register.css">
+
+   <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body class="vh-100 img-back">
+   <header>
+      <nav class="navbar navbar-expand-sm fixed-top nav-bg bg-opacity-25 navbar-inverse">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="../html/home.html">
+               <img src="../img/logo2.jpeg" alt="Logo" class="logo"/>
+            </a>
+            <a class="nav-link" href="../html/home.html"><dt>Rolling Clinica</dt></a>
+            <a class="nav-link button" aria-current="page" href="../html/register.html">
+               <dt>Registrarse</dt>
+            </a>
+         </div>
+      </nav>
+   <!-- Big Container -->
+   <div class="d-flex justify-content-center vh-100 align-items-center">
+      <!-- Contnent -->
+      <div class="d-flex flex-column nav-bg px-5 py-5 rounded-4 shadow-lg bg-opacity-25 fw-bold">
+         <h2 class="text-center pb-4">Bienvenido</h2>
+         <form>
+            <div class="mb-2">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" minlength="10" maxlength="30" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+              <label for="pass" class="form-label">Contraseña</label>
+              <input type="password" minlength="3" maxlength="25" class="form-control" id="pass">
+            </div>
+            <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="log()">Iniciar Sesion</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   
+   <!-- swAlert -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <!-- JS login -->
+   <script src="../js/login.js"></script>
+   <!-- JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>  
+      
+</body>
+</html>

@@ -1,0 +1,107 @@
+
+
+body{
+    font-family: 'Roboto Slab', serif;
+    height: 100vh;
+}
+/* NO DESCOMENTAR IMPORTANTE PARA QUE FUNCIONE JS
+ /* header{ 
+    background-image: url('../img/publicidad5.jpg');
+    background-size:cover;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+}  */
+.logo{
+    width: 50px;
+    border-radius: 40px;
+    border: 1px solid #1100cd;
+}
+.nav-bg{
+    background-color: rgba(252, 252, 252, 0.889);
+}
+.navbar-inverse li a{
+    color: #1100cd;
+}
+/*Mouse encima*/
+.navbar-inverse li a:hover{
+    color: #f60ed3;
+}
+
+
+.title{
+    color: #3B9AE1;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-30%);
+    text-shadow: 1px 2px 2px rgb(254, 251, 254);
+}
+.span{
+    color: #1505c2;
+    font-size: 20px;
+    text-shadow: 1px 2px 2px rgb(255, 174, 252);
+}
+
+.history{
+    background: #F1FAFB;
+    
+}
+.col-history{
+    margin: 5px;
+    padding: 30px;
+}
+
+.image{
+    max-width: 100%;
+    margin-top: 10%;
+}
+
+.section{
+    background:#91dadf;
+}
+.section p{
+    color: #2a56e8;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.logo-footer{
+    width: 180px;
+    padding: 5px;
+}
+.bg-footer{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(7, 7, 105) 35%, rgb(1, 125, 156) 100%);
+}
+
+.card-one{
+    background-color: #c7c8c8;
+}
+.cards{
+    background:  #c7c8c8;
+}
+
+
+.icon{
+    background-color:  #9cdae1;
+    width: 100%;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 40px;
+    
+}
+
+.contact-page{
+    padding-top: 76px;
+}
+
+/* .footer-paediatrician{
+    margin-top: auto;
+}
+
+.main-paediatrician{
+    height: 70vh;
+} */

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+
+  <!-- link bootstrap -->
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+  <!--Css-->
+
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="../css/home.css" />
+
+  <!--Fuente-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/7d7ea919ec.js" crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm fixed-top nav-bg navbar-inverse">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../html/home.html">
+          <img src="../img/logo2.jpeg" alt="Logo" class="logo" />
+        </a>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú Nav -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item me-2">
+              <button type="button" class="admin-btn-navbar px-3 py-2 fs-6" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Crear publicidad
+              </button>
+              
+              <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content admin-modal-bg  ">
+                        <div class="modal-header admin-modal-header d-flex justify-content-center px-0 py-3 ">
+                          <h5 class="modal-title admin-modal-title   fs-4  text-center " id="staticBackdropLabel">Nueva publicidad</h5>
+                          <div class =" d-flex justify-content-end" >
+                          <button type="button" class="btn-close fs-6 "   data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                          </div>
+                      <div class="modal-body">
+                        
+                    <form id="create-publicity-form">
+                      <div class="mb-2 mt-4">
+                      <label for="exampleInputText1" class="form-label">Código</label>
+                      <input id="exampleInputCode1" type="number" min="100" max="900" class="form-control" name="code">
+                        </div>
+                        <div class="mb-2">
+                          <label for="exampleInputUrl1" class="form-label">Imagen/url</label>
+                          <input id="exampleInputUrl1" type="text" class="form-control" name="url">
+                        </div>
+                        <div class="mb-2">
+                          <label for="exampleInputCategoria1" class="form-label">Categoría</label>
+                          <input required
+       minlength="7" maxlength="25" type="text" class="form-control" id="exampleInputCategoria1" aria-describedby="emailHelp" name="category">
+                        </div>
+                        <div class="mb-2">
+                          <label for="exampleInputDescripcion1" class="form-label">Descripción</label>
+                          <input required
+       minlength="5" maxlength="50" type="text" class="form-control" id="exampleInputDescripcion1" name="description">
+                        </div>
+                        
+                        <div class="text-center mt-5">
+                        <button type="submit" class="admin-modal-btn-accept px-5 py-2" >Crear</button>
+                        </div>
+                    </form>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </li> 
+            <!-- Fin del Modal-->
+
+            <li class="nav-item me-4">
+              <button type="button" class="admin-btn-navbar px-3 py-2 fs-6" onclick="logout()">
+              <!-- <a class="admin-nav-link-out" href="../html/home.html"> -->
+                <dt class="admin-nav-link-out">Salir</dt>
+              </a></button>
+            </li>
+          </ul>
+          <!-- Fin Menú NaV -->
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <main>
+
+    <!-- begin-tags-items -->
+    <ul class="nav nav-pills my-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+          type="button" role="tab" aria-controls="pills-home" aria-selected="true">Usuarios</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Servicios</button>
+      </li>
+
+
+    </ul>
+
+    <!-- End-tags-items -->
+
+    <!-- begin-tags-content -->
+    <div class="tab-content" id="pills-tabContent">
+      <!-- begin-tag-users -->
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+        tabindex="0">
+        <div class="container-fluid-sm container-md mt-5 table-responsive ">
+          <table class="table border text-light  letter-size-table ">
+            <thead class="table-head">
+              <tr>
+                <th class="text-center align-middle px-5 px-lg-0" scope="col">ID </th>
+                <th class="text-center align-middle px-5 px-lg-0"   scope="col"> Usuario </th>
+                <th class="text-center align-middle  px-5 px-lg-0"  scope="col">Apellido </th>
+                <th class="text-center  align-middle px-5 px-lg-0"   scope="col">Rol </th>
+                <th class="text-center  align-middle px-5 px-lg-0"   scope="col" > Matrícula </th>
+
+                <th class=" text-center align-middle px-5 px-lg-0" scope="col">Administrar</th>
+              </tr>
+            </thead>
+            <tbody id="table-admin-body" class="text-dark">
+            </tbody>
+            <tbody id="table-users-body"></tbody>
+          </table>
+
+        </div>
+      </div>
+      <!-- end-tag-users -->
+
+      <!-- begin-tag-publicity -->
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0"> 
+        <div class="container mt-5 table-responsive">
+          <table class="table border text-light letter-size-table ">
+            <thead class="table-head">
+              <tr>
+                <th class="text-center align-middle  px-5 px-lg-0" scope="col">Código</th>
+                <th class="text-center align-middle   px-5 px-lg-0" scope="col">Publicidad</th>
+                <th class="text-center align-middle  px-5 px-lg-0 " scope="col">Categoría</th>
+                <th class="text-center align-middle  px-5 px-lg-0" scope="col">Descripción</th>
+                <th class=" text-center align-middle px-5 px-lg-0 " scope="col">Administrar</th>
+              </tr>
+            </thead>
+            <tbody id="table-publicitys-body" class="text-dark">
+              <!-- <div id="">
+              <tr> inicio primera fila
+                <th class="text-center align-middle " scope="row">385</th>
+                <td class="text-center align-middle" > 
+                  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop10">
+                  <img class="img-publicity" src="/img/publicidad1.png" alt="publicity-1">
+                  </button> -->
+                  
+                  <!-- Modal -->
+                  <!-- <div class="modal fade" id="staticBackdrop10" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content modal-content-img-publicity">
+                        
+                        <div class="modal-body d-flex justify-content-end ">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center align-middle">Cardiología</td>
+                <td class="text-center align-middle" ></td> -->
+
+                <!-- comienzo de los 3 botones-->
+                <!-- <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center "> -->
+       <!-- Button trigger modal -->
+       <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <i class=" fa-solid  fa-trash-can  admin-icon-table "></i>
+      </button> -->
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>fin boton de eliminar -->
+
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn-table-modal-width btn btn-light me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <i  class=" fa-solid  fa-pen-to-square   admin-icon-table "></i>
+      </button> -->
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>fin boton editar -->
+
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width " data-bs-toggle="modal"
+        data-bs-target="#exampleModal3">
+        <i id="" class="fa-solid fa-star admin-icon-table text-warning"></i>
+      </button> -->
+      
+      <!-- Modal -->
+      <!-- <div class="modal fade   " id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header admin-modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+      
+            <div class="modal-body d-flex justify-content-center admin-modal-body">
+      
+              <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
+      
+            </div>
+       -->
+            <!-- <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+              <button type="button" id="agree" class="btn btn-secondary" data-bs-dismiss="modal" onclick="destacarPublicidad()">Sí</button>
+              <button type="button" id="disclaim" class="btn btn-primary">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </td>
+      </tr> Fin primera publicidad -->
+              <!-- <tr>
+                <th class="text-center align-middle" scope="row">386</th>
+                <td class="text-center align-middle">  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop11">
+                <img class="img-publicity" src="/img/publicidad2.jpg" alt="publicity-2">
+                </button>
+                 -->
+                <!-- Modal -->
+                <!-- <div class="modal fade" id="staticBackdrop11" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-content-img-publicity-2">
+                      
+                      <div class="modal-body d-flex justify-content-end ">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              
+              </td>
+                <td class="text-center align-middle">Pediatría</td>
+
+                <td class="text-center align-middle">
+
+                </td>
+                <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center "> -->
+       <!-- Button trigger modal -->
+       <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+        <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
+      </button> -->
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
+        <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
+      </button> -->
+
+      <!-- Modal -->
+      <!-- <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+        <i id="star" class="fa-solid  fa-star  admin-icon-table  "></i>
+      </button> -->
+
+      <!-- Modal -->
+      <!-- <div class="modal fade   " id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header admin-modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+              <p class="fs-5 mt-4  "> Desea resaltar la publicidad</p>
+
+            </div> -->
+<!-- 
+            <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sí</button>
+              <button type="button" class="btn btn-primary">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+                  
+                </td>
+              </tr> comienzo de  tercera publicidad -->
+              <!-- <tr>
+                <th class="text-center align-middle" scope="row">387</th>
+                <td class="text-center align-middle"> <button type="button" class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop12">
+                  <img class="img-publicity" src="/img/publicidad3.jpg" alt="publicity-3">
+                  </button> -->
+                  
+                  <!-- Modal -->
+                  <!-- <div class="modal fade" id="staticBackdrop12" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content modal-content-img-publicity-3">
+                        
+                        <div class="modal-body d-flex justify-content-end ">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div></td>
+                <td class="text-center align-middle">Ginecología</td>
+
+                <td class="text-center align-middle" >
+
+                </td>
+                <td class="text-center align-middle">
+                  <div class="d-flex justify-content-center "> -->
+                   <!-- Button trigger modal -->
+                   <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1 " data-bs-toggle="modal" data-bs-target="#staticBackdrop7">
+                    <i class="fa-solid  fa-trash-can  admin-icon-table "></i>
+                  </button> -->
+
+                  <!-- Modal -->
+                  <!-- <div class="modal fade" id="staticBackdrop7" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <!-- Button trigger modal -->
+                  <!-- <button type="button" class="btn btn-light btn-table-modal-width me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop8">
+                    <i class="fa-solid  fa-pen-to-square   admin-icon-table "></i>
+                  </button> -->
+
+                  <!-- Modal -->
+                  <!-- <div class="modal fade" id="staticBackdrop8" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+            <!-- Fin segunda publicidad-->
+
+
+                  <!-- Button trigger modal -->
+                  <!-- <button type="button" class="btn btn-light btn-table-modal-width" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                    <i id="star" class="fa-solid fa-star admin-icon-table"></i>
+                  </button> -->
+
+                  <!-- Modal -->
+                  <!-- <div class="modal fade   " id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog ">
+                      <div class="modal-content">
+                        <div class="modal-header admin-modal-header">
+
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body d-flex justify-content-center admin-modal-body">
+
+                          <p class="fs-5 mt-4  "> Desea resaltar la Publicidad</p>
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center admin-modal-footer">
+                          <button type="button" class="btn btn-primary">Sí</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              <!-- fin de la tercera Publicidad-->
+                   
+                </div>
+
+              
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- end-tag-publicity -->
+
+    </div> 
+    <!-- end-tags-content -->
+
+    <!-- Button trigger modal -->
+                  
+
+  </main>
+
+			<!-- Comienzo de footer-->
+	
+      <footer class="bg-footer">
+        <div class="container-fluid mt-auto p-3 text-white bottom-1">
+          <div class="row d-flex justify-content-center">
+  
+            <div class="col-12 col-sm-5 col-md-4 col-lg-4 m-2 ">
+              <p class="fs-6 fw-bold">Información </p>
+              <i class="fa-solid fa-phone"> </i><span> 003-521422</span><br>
+              <i class="fa-solid fa-location-dot"> </i><a
+                href="https://www.google.com.ar/maps/place/RollingCode+School/@-26.8366961,-65.2093905,17z/data=!3m1!4b1!4m5!3m4!1s0x94225d3ad7f30f1d:0xf8606cd659b8e3e4!8m2!3d-26.8367009!4d-65.2072018"
+                class="text-decoration-none text-white"> Gral. Paz 576, Tucumán</a><br>
+              <i class="fa-solid fa-bus-simple"></i> <span>Linea: 25, 32, 15</span><br>
+              <i class="fa-solid fa-envelope"></i> <a href="404.html" class="text-decoration-none text-white">
+                rollingclinic@gmail.com</a>
+            </div>
+                <div class="col-sm-5 col-md-3 col-lg-3">
+                  <a href="./home.html"><img src="../img/logo1.jpeg" alt="Logo"
+                      class="img-fluid logo-footer"></a>
+                </div>
+      
+                <div class="col-sm-5 col-md-3 col-lg-3 d-flex flex-column m-3">
+                  <a href="./404.html" class="text-white text-decoration-none"><i class="fa-brands fa-instagram fa-lg mb-4"></i>  ClinicaRolling</a>
+                  <a href="./404.html" class="text-white text-decoration-none"><i class="fa-brands fa-twitter fa-lg mb-4"></i>  ClinicR</a>
+                  <a href="./404.html" class="text-white text-decoration-none"><i class="fa-brands fa-facebook fa-lg mb-4"></i>  Clinica Rolling</a>
+                </div>
+          </div>
+        </div>
+          <div class="text-center mt-4 text-white">
+            <p>&copy; RollingClinic. Comision 9i-Grupo1. 2022</p>
+          </div>
+        
+      </footer>
+    <!-- FIN del Footer-->
+
+     <!-- Button trigger modal -->
+             
+
+
+
+
+
+
+
+  <!-- JS validAdmin -->
+  <script src="../js/validAdmin.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="../js/publicity.js"></script>
+
+  <script src="../js/admin.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

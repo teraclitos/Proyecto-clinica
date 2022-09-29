@@ -1,0 +1,124 @@
+/* .paleta{
+   color: #F1FAFB;
+   color: #A0E4F1;
+   color: #9DC6FF;
+   color: #4993FA;
+} */
+
+.modal-backdrop {
+  position: unset;
+}
+
+.table-head {
+  background-color: #4993fa;
+}
+
+.btn-table-modal-width {
+  max-width: 100%;
+}
+
+.img-publicity {
+  width: 6rem;
+
+  height: 4rem;
+}
+
+.admin-nav-link-out {
+  text-decoration: none;
+  color: azure;
+}
+.admin-modal-title {
+  width: 85%;
+}
+.admin-modal-bg {
+  background-color: #f1fafb;
+}
+.admin-modal-header {
+  border-bottom: 0;
+}
+.admin-modal-body {
+  border-bottom: 0;
+}
+.admin-modal-footer {
+  border-top: 0;
+}
+.admin-modal-btn-accept {
+  background-color: #1f69cf;
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-modal-btn-accept:hover {
+  background-color: #0b50af;
+  transition: 0.5s;
+}
+.admin-modal-btn-delete {
+  background-color: rgb(182, 62, 62);
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-modal-btn-delete:hover {
+  background-color: rgb(184, 11, 11);
+  transition: 0.5s;
+}
+.admin-btn-navbar {
+  background-color: #4993fa;
+  color: azure;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.admin-btn-navbar:hover {
+  background-color: #0b50af;
+  transition: 0.5s;
+}
+.modal-content-img-publicity {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
+}
+
+.modal-content-img-publicity-2 {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
+}
+
+.modal-content-img-publicity-3 {
+  background-image: url();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 36rem;
+  height: 24rem;
+}
+
+@media (max-width: 768px) {
+  .letter-size-table {
+    font-size: 0.7rem;
+  }
+  .admin-icon-table {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .admin-icon-table {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-btn-navbar {
+    width: 10rem;
+  }
+}
+header {
+  margin-top: 6.25rem;
+}

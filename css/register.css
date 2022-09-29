@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+/* .paleta{
+   color: #F1FAFB;
+   color: #A0E4F1;
+   color: #9DC6FF;
+   color: #4993FA;
+} */
+
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+.logo {
+  width: 50px;
+  border-radius: 40px;
+}
+
+.nav-bg {
+  background-color: rgba(252, 252, 252, 0.935);
+}
+
+.btn-paciente-med-style {
+  background-color: #4993fa;
+  color: #f1fafb;
+  font-weight: bold;
+  border: solid 1px;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.img-back {
+  background-image: url(../img/img-back-register.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg {
+  background-color: rgba(253, 250, 250, 0.857);
+  /* margin-top: 80px; */
+  /* height: 87vh; */
+}
+
+.margin-t {
+  padding-top: 20px;
+}
+
+@media (max-width: 500px) {
+  .img-back {
+    background-image: url(../img/img-back-sm-register.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .repeat-contra {
+    font-size: small;
+  }
+}
